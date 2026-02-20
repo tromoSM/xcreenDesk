@@ -15,6 +15,15 @@ window.addEventListener("DOMContentLoaded",function(){
      temp$$el$scr.remove()
     }
     window.message=function(x){
-     sdih.emit("message",x,username)
+     if(x!==null){
+      if(x.trim()!==''){
+       sdih.emit("message",x,username)
+       success('message sent')
+      }
+      else{
+        alert("a message cannot be empty.")
+      }
     }
+}
+
 })
