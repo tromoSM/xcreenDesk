@@ -6,7 +6,6 @@
   width: 100vw;
   height: 100vh;
   background:#000;
-  object-fit: scale-down;
   transition: 0.2s;
 }
 html,body{
@@ -24,8 +23,38 @@ html,body{
   animation: open-cov 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 [scale]{
-  object-fit: scale-down ;
+  object-fit: contain ;
   animation: open-rev-cov 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+pointer{
+  background: white;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  position: fixed;
+  transition: 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  pointer-events: none;
+  display: none;
+  transform:  translate(-50%,-50%) scale(0);
+  z-index: +9999;
+  top: 0;
+  left: 0;
+  border-radius: 50px;
+  mix-blend-mode: difference;
+}
+[active-b]{
+  background: white;
+}
+[active-b] svg{
+  stroke: rgb(0, 0, 0) !important;
+}
+[activate]{display: block;}
+[deactivate]{display: none;}
+[active='ahh']{
+  transform: translate(-50%,-50%) scale(1);
+}
+[active='fuhnaw']{
+  transform:  translate(-50%,-50%) scale(0);
 }
 @keyframes open-cov{
   from{
