@@ -6,6 +6,7 @@ import time
 import numpy as dihpy
 import base64
 import threading as threadihn
+import ctypes
 app=Flask(__name__)
 S=SocketIO(app,cors_allowed_origins='*')
 print('starting')
@@ -38,6 +39,22 @@ def livetypeshi():
         fcs=base64.b64encode(succ).decode('utf-8')
         S.emit('imim_main',fcs)
         S.sleep(0.02)
+@S.on("message")
+def rec(x,u):
+    def bgtsk():
+      try:
+       from windows_toasts import AudioSource, Toast, ToastAudio,WindowsToaster
+       burnttoast = WindowsToaster('Anydesk')
+       TotЯ = Toast()
+       TotЯ.text_fields = [f"{u} sent you a message",x]
+       TotЯ.audio=ToastAudio(AudioSource.Default, looping=False)
+       burnttoast.show_toast(TotЯ)
+      except Exception:
+        pass
+      ctypes.windll.user32.MessageBoxW(0,x,f"{u} via Anydesk",0x40) #replace with webviewapi gui
+
+    tempthead=threadihn.Thread(target=bgtsk,daemon=True)
+    tempthead.start()
 @app.route('/')
 def dih():
    return render_template('index.html')
