@@ -8,4 +8,10 @@ window.addEventListener("DOMContentLoaded",function(){
     document.querySelector('[tromoSM="mainvid"]').toggleAttribute('cover')
     document.querySelector('[tromoSM="mainvid"]').toggleAttribute('scale')
     })
+    document.querySelector('[tromoSM="curs"]').addEventListener("click",function(){
+        document.querySelector('pointer').toggleAttribute('activate')
+        document.querySelector('pointer').toggleAttribute('deactivate')
+        document.querySelector('[tromoSM="curs"]').toggleAttribute('active-a')
+        document.querySelector('[tromoSM="curs"]').toggleAttribute('active-b')
+    })
 })
