@@ -1,5 +1,8 @@
 window.addEventListener("DOMContentLoaded",function(){
-    const sdih=io()
+  window.wait=function(dih){
+        return new Promise(resolve=>setTimeout(resolve,dih))
+  }
+  const sdih=io()
     sdih.on("imim_main",function(imim){
      window.usg=imim.length/(1024*1024)
       document.querySelector('[tromoSM="mainvid"]').addEventListener('click',function(){
@@ -70,6 +73,18 @@ window.addEventListener("DOMContentLoaded",function(){
       console.log("clicked", R0X, R0Y)
       sdih.emit("eventclick",{temp$$instant$Xpos:R0X,temp$$instant$Ypos:R0Y,dihser:username})
       }
+    })
+      let main$$cur=document.createElement('pointer')
+      main$$cur.setAttribute('deactivate','')
+      document.body.appendChild(main$$cur)
+    document.querySelector('[tromoSM="mainvid"]').addEventListener('mousemove',async function(dih){
+      main$$cur.style.left=`${dih.clientX}px`
+      main$$cur.style.top=`${dih.clientY}px`
+    })
+    document.querySelector('[tromoSM="mainvid"]').addEventListener('click',async function(dih){
+      main$$cur.setAttribute('active','ahh')
+      await wait(1000)
+      main$$cur.setAttribute("active",'fuhnaw')
     })
 
 })
