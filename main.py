@@ -1,3 +1,5 @@
+import eventlet
+eventlet.monkey_patch()
 from datetime import datetime
 a=datetime.now()
 from colorama import Fore,Style
@@ -12,7 +14,24 @@ import threading as threadihn
 import ctypes
 import sys
 import pyautogui
+sys0start=False
+sys0thr=None
 print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] Setting up emergency stop")
+
+def start0main():
+   global sys0start
+   global sys0thr
+   if(sys0start):
+      return 'sybau'
+   sys0start=True
+   sys0thr=threadihn.Thread(target=livetypeshi,daemon=True)
+   sys0thr.start()
+   return "yo screen is live yo"
+def stopcro():
+   global sys0start
+   sys0start=False
+   return 'i guess bro'
+
 class EmergencyStop(Exception):
     a=datetime.now()
     temp0a0exit0ex=datetime.now()
@@ -27,7 +46,7 @@ class EmergencyStop(Exception):
 ctypes.windll.user32.SetProcessDPIAware()
 logging0level0info=True
 app=Flask(__name__)
-S=SocketIO(app,cors_allowed_origins='*')
+S=SocketIO(app,cors_allowed_origins='*',async_mode="eventlet")
 a=datetime.now()
 print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] Turning on server")
 rl0h=0
@@ -65,11 +84,11 @@ def livetypeshi():
          ou0h=int(rl0h*incaseCAP)
          a=datetime.now()
          print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] Getting ready to resize screenshare into web efficient quality")
-         print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] Screenshare resized from{rl0w}x{rl0h} to {ou0w}x{ou0h}")
+         print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] Screenshare resized from {rl0w}x{rl0h} to {ou0w}x{ou0h}")
      else:
          ou0h=rl0h
          ou0w=rl0w
-     while True:
+     while sys0start:
         if logging0level0info:
          a=datetime.now()
          print(f"[{Fore.BLUE}{a.time()}{Style.RESET_ALL}] Live capture sent")
@@ -117,12 +136,11 @@ def sybau(datashit):
        temp0absX=int(temp0forinstant0XPOS*rl0w)+temp0inf0offL
        temp0absY=int(temp0forinstant0YPOS*rl0h)+temp0inf0offT
        pyautogui.click(temp0absX,temp0absY)
-       print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] {datashit["temp$$instant$Ypos"]} clicked {temp0absX}x{temp0absY}.")
-
+       print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] {datashit['temp$$instant$Ypos']} clicked {temp0absX}x{temp0absY}.")
 
 @app.route('/')
 def dih():
    return render_template('index.html')
 if __name__=="__main__":
-   S.start_background_task(livetypeshi)
+   start0main()
    S.run(app,host='0.0.0.0',port=1216)
