@@ -1,3 +1,6 @@
+# © 2026-tromoSM. All rights reserved.
+# tromoSM/xcreenDesk
+# MADE FOR GUI MODE GET THE CLI VERSION AT CLI/
 import eventlet
 eventlet.monkey_patch()
 from datetime import datetime
@@ -14,22 +17,21 @@ import threading as threadihn
 import ctypes
 import sys
 import pyautogui
-sys0start=False
-sys0thr=None
+iguessbro=False
+iguesscro=None
 print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] Setting up emergency stop")
 
 def start0main():
-   global sys0start
-   global sys0thr
-   if(sys0start):
+   global iguessbro,iguesscro
+   if(iguessbro):
       return 'sybau'
-   sys0start=True
-   sys0thr=threadihn.Thread(target=livetypeshi,daemon=True)
-   sys0thr.start()
+   iguessbro=True
+   iguesscro=threadihn.Thread(target=livetypeshi,daemon=True)
+   iguesscro.start()
    return "yo screen is live yo"
 def stopcro():
-   global sys0start
-   sys0start=False
+   global iguessbro
+   iguessbro=False
    return 'i guess bro'
 
 class EmergencyStop(Exception):
@@ -63,12 +65,7 @@ print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] Loading preferences")
 a=datetime.now()
 print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] Getting screenshare ready")
 def livetypeshi():
-    global rl0w
-    global rl0h
-    global temp0inf0offL
-    global ou0h
-    global ou0w
-    global temp0inf0offT
+    global rl0w,rl0h,temp0inf0offL,ou0h,ou0w,temp0inf0offT
     with mss.mss()as diddy:
      maincord=diddy.monitors[chng0monitor]
      rl0w=maincord["width"]
@@ -88,7 +85,7 @@ def livetypeshi():
      else:
          ou0h=rl0h
          ou0w=rl0w
-     while sys0start:
+     while iguessbro:
         if logging0level0info:
          a=datetime.now()
          print(f"[{Fore.BLUE}{a.time()}{Style.RESET_ALL}] Live capture sent")
@@ -125,11 +122,7 @@ def rec(x,u):
     tempthead.start()
 @S.on("eventclick")
 def sybau(datashit):
-    global chng0REMOTE
-    global rl0w
-    global rl0h
-    global temp0inf0offL
-    global temp0inf0offT
+    global chng0REMOTE,rl0w,rl0h,temp0inf0offL,temp0inf0offT
     if chng0REMOTE:
        temp0forinstant0XPOS=datashit["temp$$instant$Xpos"]
        temp0forinstant0YPOS=datashit["temp$$instant$Ypos"]
