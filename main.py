@@ -1,14 +1,29 @@
+from datetime import datetime
+a=datetime.now()
+from colorama import Fore,Style
+print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] Please wait...")
 import cv2 as cdih
 from flask import Flask,render_template
 from flask_socketio import SocketIO
 import mss
-from datetime import datetime
 import numpy as dihpy
 import base64
 import threading as threadihn
 import ctypes
-from colorama import Fore,Style
+import sys
 import pyautogui
+print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] Setting up emergency stop")
+class EmergencyStop(Exception):
+    a=datetime.now()
+    temp0a0exit0ex=datetime.now()
+    def __init__(self):
+       super().__init__("Stopped due to EmergencyStop.")
+       temp0a0exit0exa=datetime.now()
+       print(f"[{Fore.RED}{a.time()}{Style.RESET_ALL}] Took {((temp0a0exit0exa-EmergencyStop.temp0a0exit0ex).total_seconds()):.2f} to execute EmergencyStop")
+       print(f"[{Fore.RED}{a.time()}{Style.RESET_ALL}] Stopping all functions due to EmergencyStop")
+       sys.exit(self)
+    "Stopped due to EmergencyStop."
+    pass
 ctypes.windll.user32.SetProcessDPIAware()
 logging0level0info=True
 app=Flask(__name__)
@@ -25,6 +40,7 @@ temp0inf0offL=0
 chng0monitor=1
 chng0NETcap=1280
 chng0REMOTE=True
+print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] Loading preferences")
 a=datetime.now()
 print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] Getting screenshare ready")
 def livetypeshi():
@@ -68,6 +84,7 @@ def livetypeshi():
         S.sleep(0.02)
 @S.on("message")
 def rec(x,u):
+    #raise EmergencyStop()
     def bgtsk():
       a=datetime.now()      
       print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] {u} sent the message '{x}' to host.")
