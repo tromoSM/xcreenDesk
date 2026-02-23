@@ -6,7 +6,6 @@ window.addEventListener("DOMContentLoaded",function(){
     sdih.on("imim_main",function(imim){
      window.usg=imim.length/(1024*1024)
       document.querySelector('[tromoSM="mainvid"]').addEventListener('click',function(){
-        console.log('yo')
       })
      document.querySelector('[tromoSM="mainvid"]').src=`data:image/jpeg;base64,${imim}`
     })
@@ -32,7 +31,14 @@ window.addEventListener("DOMContentLoaded",function(){
     }
   }
     
-    document.querySelector('[tromoSM="mainvid"]').addEventListener('click',async function(dih){
+    document.querySelector('[tromoSM="mainvid"]').addEventListener("click",async(dih)=>{
+     await clicker(dih,'c')
+    })
+    document.querySelector('[tromoSM="mainvid"]').addEventListener("dbclick",async(dih)=>{
+     await clicker(dih,'db')
+    })
+
+    async function clicker(dih,xdih){
       let temp$$clc$targt=dih.target
       let main$$data$$fetch=temp$$clc$targt.getBoundingClientRect()
       const raW=temp$$clc$targt.naturalWidth
@@ -70,10 +76,10 @@ window.addEventListener("DOMContentLoaded",function(){
       const R0X=temp$$cliX/frW
       const R0Y=temp$$cliY/frH
       if(R0X>=0&& R0X<=1&&R0Y>=0&&R0Y<=1){
-      console.log("clicked", R0X, R0Y)
-      sdih.emit("eventclick",{temp$$instant$Xpos:R0X,temp$$instant$Ypos:R0Y,dihser:username})
-      }
-    })
+      sdih.emit("eventclick",{temp$$instant$Xpos:R0X,temp$$instant$Ypos:R0Y,dihser:username,mode:xdih})
+    }
+
+    }
       let main$$cur=document.createElement('pointer')
       main$$cur.setAttribute('deactivate','')
       document.body.appendChild(main$$cur)
