@@ -1,8 +1,6 @@
 # © 2026-tromoSM. All rights reserved.
 # tromoSM/xcreenDesk
 # MADE FOR GUI MODE GET THE CLI VERSION AT CLI/
-import eventlet
-eventlet.monkey_patch()
 from datetime import datetime
 a=datetime.now()
 from colorama import Fore,Style
@@ -17,11 +15,16 @@ import threading as threadihn
 import ctypes
 import sys
 import pyautogui
+import webview
 iguessbro=False
 iguesscro=None
 print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] Setting up emergency stop")
-
-def start0main():
+##VAR GUI vChng
+chng0monitor=1
+chng0NETcap=1280
+chng0REMOTE=True
+class didhejustsayhislastnamewasburger():
+ def start0main(self,_=None):
    global iguessbro,iguesscro
    if(iguessbro):
       return 'sybau'
@@ -29,11 +32,12 @@ def start0main():
    iguesscro=threadihn.Thread(target=livetypeshi,daemon=True)
    iguesscro.start()
    return "yo screen is live yo"
-def stopcro():
+ def stopcro(self,_=None):
    global iguessbro
    iguessbro=False
    return 'i guess bro'
-
+ def Nigger(self,_=None):
+      ctypes.windll.user32.MessageBoxW(0,'a',f"a via xscreenDesk",0x40)
 class EmergencyStop(Exception):
     a=datetime.now()
     temp0a0exit0ex=datetime.now()
@@ -48,7 +52,7 @@ class EmergencyStop(Exception):
 ctypes.windll.user32.SetProcessDPIAware()
 logging0level0info=True
 app=Flask(__name__)
-S=SocketIO(app,cors_allowed_origins='*',async_mode="eventlet")
+S=SocketIO(app,cors_allowed_origins='*',async_mode="threading")
 a=datetime.now()
 print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] Turning on server")
 rl0h=0
@@ -57,10 +61,6 @@ ou0w=0
 ou0h=0
 temp0inf0offT=0
 temp0inf0offL=0
-##VAR GUI vChng
-chng0monitor=1
-chng0NETcap=1280
-chng0REMOTE=True
 print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] Loading preferences")
 a=datetime.now()
 print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] Getting screenshare ready")
@@ -131,9 +131,20 @@ def sybau(datashit):
        pyautogui.click(temp0absX,temp0absY)
        print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] {datashit['temp$$instant$Ypos']} clicked {temp0absX}x{temp0absY}.")
 
+@app.route('/_tromoSM-dashboard')
+def sybau():
+   return render_template('tromoSM-admin.html')
 @app.route('/')
 def dih():
    return render_template('index.html')
+
 if __name__=="__main__":
-   start0main()
-   S.run(app,host='0.0.0.0',port=1216)
+   dihpi=didhejustsayhislastnamewasburger()
+   def tempahhtypeshitdawg():
+       S.run(app,host='0.0.0.0',port=1216,allow_unsafe_werkzeug=True,use_reloader=False)
+   import time
+   tempahhthread=threadihn.Thread(target=tempahhtypeshitdawg,daemon=True)
+   tempahhthread.start()
+   time.sleep(2)    
+   tempdawg=webview.create_window("iguess bro","http://127.0.0.1:1216/_tromoSM-dashboard",js_api=dihpi)
+   webview.start(debug=True)
