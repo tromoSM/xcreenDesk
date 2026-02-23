@@ -14,4 +14,7 @@ window.addEventListener("DOMContentLoaded",function(){
         document.querySelector('[tromoSM="curs"]').toggleAttribute('active-a')
         document.querySelector('[tromoSM="curs"]').toggleAttribute('active-b')
     })
+    document.querySelector('[tromoSM="keys"]').addEventListener("click",function(){
+        showKeyboard()
+    })
 })
