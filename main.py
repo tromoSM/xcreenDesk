@@ -128,8 +128,12 @@ def sybau(datashit):
        temp0forinstant0YPOS=datashit["temp$$instant$Ypos"]
        temp0absX=int(temp0forinstant0XPOS*rl0w)+temp0inf0offL
        temp0absY=int(temp0forinstant0YPOS*rl0h)+temp0inf0offT
-       pyautogui.click(temp0absX,temp0absY)
-       print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] {datashit['temp$$instant$Ypos']} clicked {temp0absX}x{temp0absY}.")
+       if datashit["mode"]=="c":
+        pyautogui.click(temp0absX,temp0absY)
+        print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] {datashit['temp$$instant$Ypos']} clicked {temp0absX}x{temp0absY}.")
+       elif datashit['mode']=="db":
+        pyautogui.dbclick(temp0absX,temp0absY)
+        print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] {datashit['temp$$instant$Ypos']} double clicked {temp0absX}x{temp0absY}.")
 
 @app.route('/_tromoSM-dashboard')
 def sybau():
