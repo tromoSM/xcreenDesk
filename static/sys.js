@@ -127,4 +127,10 @@ window.addEventListener("DOMContentLoaded",function(){
         })
     })
     }
+    window.showKeyboard=function(){
+      temp$$a$$dih=document.createElement('input')
+      document.body.appendChild(temp$$a$$dih)
+      temp$$a$$dih.setAttribute("tromoSM",'sys$hide')
+      temp$$a$$dih.focus()  
+    }
 })
