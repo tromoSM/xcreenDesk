@@ -2,6 +2,112 @@
     font-family: SF Dih;
     src: url("./InterVar.ttf");
 }
+@property --bg-dih {
+  inherits: false;
+  initial-value: 0deg;
+  syntax: "<angle>";
+}
+@keyframes ani-c-p-RT {
+  to {
+    --bg-dih: 360deg;
+  }
+}
+mainindicate {
+    width: fit-content;
+    height: 70%;
+    display: flex;
+    position: absolute;
+    right: 6px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    box-shadow:-2px -2px 3px #ffffffa8, 2px 2px 3px #8d8d8d;
+    padding: 0px 10px;
+    cursor: pointer;
+    animation: ani-c-p-RT 2.5s infinite linear running;
+    background: linear-gradient(to bottom, oklch(0.96 0 0 / 0.95), oklch(0.98 0 0)) padding-box, conic-gradient(from var(--bg-dih), oklch(0.72 0.23 22.77) 0%, oklch(1 0 0 / 0) 25%, oklch(1 0 0 / 0) 50%, oklch(0.72 0.23 22.66) 100%) border-box;
+  border: 1px solid transparent;
+  /*codepen/jlengstorf/WNPGMJo*/
+}
+mainindicate:hover{
+  animation-play-state: paused;
+  filter: contrast(0.9);
+  transition: 0.2s;
+}
+mainindicate:active *{
+  transform-origin: center;
+  transform: scale(0);
+  transition: 0.2s;
+}
+@keyframes open-scale-f{
+  from{
+    transform: scale(0.7);
+  }
+  to{
+    transform: scale(1);
+  }
+}
+ani-tri {
+    display: block;
+    width: 0;
+    height: 0;
+    border-radius: 15%;
+    margin-right: 6px;
+    box-sizing: border-box;
+    border-left: 14px solid #696969;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    animation: open-scale-f 0.3s;
+}
+ani-cir {
+    display: block;
+    width: 14px;
+    height: 14px;
+    background: #696969;
+    border-radius: 15%;
+    animation: open-scale-f 0.3s;
+    margin-right: 6px;
+}
+[admin=maintitle]{
+  margin: 0;
+  padding: 0;
+  font-size: larger;
+}
+body[override='admin']{
+  background: #f7f7f7;
+}
+[override="admin-imim"] {
+    background: white !important;
+    width: 250px !important;
+    height: auto !important;
+    box-shadow: 6px 7px 15px #afafaf6b, -6px -7px 15px #ffffff !important;
+    min-height: 141px;
+    margin:0px 20px;
+    border: none !important;
+    outline: none !important;
+    padding: 10px;
+    border-radius: 15px;
+}
+web-seperator{
+  display: block;
+  height: 80px;
+  background: transparent;
+  opacity: 0;
+  width: 100%;
+}
+header[tromoSM=admin] {
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    position: fixed;
+    align-items: center;
+    padding: 0px 10px;
+    box-shadow: 0px 0px 6px #0000003b, inset 0px -2px 6px #ffffff;
+    box-sizing: border-box;
+    height: 40px;
+    top: 0;
+    z-index: +999999999967;
+}
 [tromoSM="mainvid"]{
   width: 100vw;
   height: 100vh;
