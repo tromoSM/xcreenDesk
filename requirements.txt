@@ -1,0 +1,8 @@
+colorama
+opencv-python
+flask
+flask-socketio
+mss
+numpy
+pyautogui
+pywebview
