@@ -37,7 +37,9 @@ window.addEventListener("DOMContentLoaded",function(){
     document.querySelector('[tromoSM="mainvid"]').addEventListener("dbclick",async(dih)=>{
      await clicker(dih,'db')
     })
-
+    document.querySelector('[tromoSM="mainvid"]').addEventListener("keydown",async function(bdih){
+     await sdih.emit("typeshi",bdih.key)
+    })
     async function clicker(dih,xdih){
       let temp$$clc$targt=dih.target
       let main$$data$$fetch=temp$$clc$targt.getBoundingClientRect()
@@ -92,5 +94,4 @@ window.addEventListener("DOMContentLoaded",function(){
       await wait(1000)
       main$$cur.setAttribute("active",'fuhnaw')
     })
-
 })
