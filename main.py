@@ -36,8 +36,6 @@ class didhejustsayhislastnamewasburger():
    global iguessbro
    iguessbro=False
    return 'i guess bro'
- def Nigger(self,_=None):
-      ctypes.windll.user32.MessageBoxW(0,'a',f"a via xscreenDesk",0x40)
 class EmergencyStop(Exception):
     a=datetime.now()
     temp0a0exit0ex=datetime.now()
