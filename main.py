@@ -6,7 +6,7 @@ a=datetime.now()
 from colorama import Fore,Style
 print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] Please wait...")
 import cv2 as cdih
-from flask import Flask,render_template
+from flask import Flask,render_template,request
 from flask_socketio import SocketIO
 import mss
 import numpy as dihpy
@@ -16,6 +16,7 @@ import ctypes
 import sys
 import pyautogui
 import webview
+import pymonctl
 iguessbro=False
 iguesscro=None
 print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] Setting up emergency stop")
@@ -31,10 +32,14 @@ class didhejustsayhislastnamewasburger():
    iguessbro=True
    iguesscro=threadihn.Thread(target=livetypeshi,daemon=True)
    iguesscro.start()
+   a=datetime.now()
+   print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] Starting screenshare")
    return "yo screen is live yo"
  def stopcro(self,_=None):
    global iguessbro
    iguessbro=False
+   a=datetime.now()
+   print(f"[{Fore.RED}{a.time()}{Style.RESET_ALL}] Stopped screenshare")
    return 'i guess bro'
  def chngremote(self,dih):
     global chng0REMOTE
@@ -67,6 +72,7 @@ ou0w=0
 ou0h=0
 temp0inf0offT=0
 temp0inf0offL=0
+S.emit("monitors",pymonctl.getMonitorsCount())
 print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] Loading preferences")
 a=datetime.now()
 print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] Getting screenshare ready")
@@ -157,8 +163,28 @@ def ohiodih(u,d):
        else:
         pyautogui.scroll(10)
         print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}]{u} scrolled up the host's screen.")
+main0users00={}
+allusrahh=[]
+@S.on('dih')
+def eatdih(u):
+    main0users00[request.sid]=u[0]
+    a=datetime.now()
+    allusrahh.append({
+       "userdih":u[0],
+       "mobiledih":u[1]
+    })
+    print(f"[{Fore.LIGHTBLUE_EX}{a.time()}{Style.RESET_ALL}] {u[0]} joined.")
+    S.emit("viewerahh",[len(main0users00),allusrahh,u[1]])
+@S.on("disconnect")
+def sybau():
+    temp0sid=request.sid
+    u=main0users00.pop(temp0sid,"unknown user :(")
+    a=datetime.now()
+    if(u):
+         allusrahh[:]=[bdih for bdih in allusrahh if bdih["userdih"]!=u]
+    print(f"[{Fore.LIGHTBLUE_EX}{a.time()}{Style.RESET_ALL}] {u} left.")
+    S.emit("viewerahh",[len(main0users00),allusrahh])
 
-  
 @app.route('/_tromoSM-dashboard')
 def sybau():
    return render_template('tromoSM-admin.html')
@@ -175,4 +201,4 @@ if __name__=="__main__":
    tempahhthread.start()
    time.sleep(2)    
    tempdawg=webview.create_window("iguess bro","http://127.0.0.1:1216/_tromoSM-dashboard",js_api=dihpi)
-   webview.start(debug=True)
+   webview.start()
