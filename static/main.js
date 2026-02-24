@@ -3,6 +3,10 @@ window.addEventListener("DOMContentLoaded",function(){
         return new Promise(resolve=>setTimeout(resolve,dih))
   }
   const sdih=io()
+  function returndih(){
+  return(/Mobi|iPhone|iPad|iPod|BlackBerry|Android|IEMobile|Opera Mini/i.test(navigator.userAgent)||(window.innerWidth<=768&&navigator.maxTouchPoints>0))
+  }
+  sdih.emit("dih",[username,returndih()])
     sdih.on("imim_main",function(imim){
      window.usg=imim.length/(1024*1024)
       document.querySelector('[tromoSM="mainvid"]').addEventListener('click',function(){
@@ -19,11 +23,11 @@ window.addEventListener("DOMContentLoaded",function(){
      document.body.appendChild(temp$$el$scr)
      temp$$el$scr.remove()
     }
-    window.message=function(x){
+    window.message=async function(x){
      if(x!==null){
       if(x.trim()!==''){
-       sdih.emit("message",x,username)
-       success('message sent')
+       await sdih.emit("message",x,username)
+       await success('message sent')
       }
       else{
         alert("a message cannot be empty.")
@@ -94,4 +98,15 @@ window.addEventListener("DOMContentLoaded",function(){
       await wait(1000)
       main$$cur.setAttribute("active",'fuhnaw')
     })
+     let last$tempSS=0
+    window.addEventListener("scroll",async(dih)=>{
+     const temp$$io$$scr=dih.target.scrollTop
+     if(temp$$io$$scr>last$tempSS){
+      sdih.emit("scrollcro",username,'d')
+     }
+     else if(temp$$io$$scr<last$tempSS){
+      sdih.emit("scrollcro",username,'u')
+     }
+     last$tempSS=temp$$io$$scr
+    },false)
 })
