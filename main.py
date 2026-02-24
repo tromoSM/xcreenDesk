@@ -36,6 +36,14 @@ class didhejustsayhislastnamewasburger():
    global iguessbro
    iguessbro=False
    return 'i guess bro'
+ def chngremote(self,dih):
+    global chng0REMOTE
+    if(dih=='t'):
+       chng0REMOTE=True
+       print(f"[{Fore.YELLOW}{a.time()}{Style.RESET_ALL}] Host changed the screenshare mode to full control")
+    elif(dih=="f"):
+        chng0REMOTE=False
+        print(f"[{Fore.YELLOW}{a.time()}{Style.RESET_ALL}] Host changed the screenshare mode to view only")
 class EmergencyStop(Exception):
     a=datetime.now()
     temp0a0exit0ex=datetime.now()
@@ -126,13 +134,31 @@ def sybau(datashit):
        temp0forinstant0YPOS=datashit["temp$$instant$Ypos"]
        temp0absX=int(temp0forinstant0XPOS*rl0w)+temp0inf0offL
        temp0absY=int(temp0forinstant0YPOS*rl0h)+temp0inf0offT
+       a=datetime.now()
        if datashit["mode"]=="c":
         pyautogui.click(temp0absX,temp0absY)
         print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] {datashit['temp$$instant$Ypos']} clicked {temp0absX}x{temp0absY}.")
        elif datashit['mode']=="db":
         pyautogui.doubleClick(temp0absX,temp0absY)
         print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] {datashit['temp$$instant$Ypos']} double clicked {temp0absX}x{temp0absY}.")
+@S.on("typeshi")
+def ngg(sybau):
+    temp0dih0sybau=['backspace','enter','shift','ctrl','alt','tab','esc','escape','delete','up','down','left',"right"]
+    if sybau.lower() in temp0dih0sybau:
+        pyautogui.press(sybau)
+    else:
+     pyautogui.write(sybau)
+@S.on('scrollcro')
+def ohiodih(u,d):
+       a=datetime.now()
+       if(d=="d"):
+        pyautogui.scroll(-10)
+        print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}]{u} scrolled down the host's screen.")
+       else:
+        pyautogui.scroll(10)
+        print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}]{u} scrolled up the host's screen.")
 
+  
 @app.route('/_tromoSM-dashboard')
 def sybau():
    return render_template('tromoSM-admin.html')
