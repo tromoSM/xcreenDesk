@@ -6,7 +6,7 @@ a=datetime.now()
 from colorama import Fore,Style
 print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] Please wait...")
 import cv2 as cdih
-from flask import Flask,render_template,request
+from flask import Flask,render_template,request,abort
 from flask_socketio import SocketIO
 import mss
 import numpy as dihpy
@@ -187,6 +187,9 @@ def sybau():
 
 @app.route('/_tromoSM-dashboard')
 def sybau():
+   if(request.remote_addr!='127.0.0.1'):
+      abort(403)
+      return 'sybau'
    return render_template('tromoSM-admin.html')
 @app.route('/')
 def dih():
@@ -201,4 +204,4 @@ if __name__=="__main__":
    tempahhthread.start()
    time.sleep(2)    
    tempdawg=webview.create_window("iguess bro","http://127.0.0.1:1216/_tromoSM-dashboard",js_api=dihpi)
-   webview.start()
+   webview.start(debug=True)
