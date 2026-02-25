@@ -27,7 +27,6 @@ window.addEventListener("DOMContentLoaded",function(){
      if(x!==null){
       if(x.trim()!==''){
        await sdih.emit("message",x,username)
-       await success('message sent')
       }
       else{
         alert("a message cannot be empty.")
@@ -109,4 +108,10 @@ window.addEventListener("DOMContentLoaded",function(){
      }
      last$tempSS=temp$$io$$scr
     },false)
+    sdih.on("suc",async function(msg){
+     await success(msg)
+    })
+    sdih.on("fail",async function(msg){
+     await fail(msg)
+    })
 })
