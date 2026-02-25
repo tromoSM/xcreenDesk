@@ -83,6 +83,29 @@ window.addEventListener("DOMContentLoaded",function(){
         await sleep(310)
         temp$$el$$not.remove()
     }
+
+    window.fail=async function(dihh){
+        let temp$$el$$not=document.createElement(`notify`)
+        let temp$$el$$spi=document.createElement('div')
+        temp$$el$$spi.setAttribute('tromoSM','normalxdialog')
+        lottie.loadAnimation({
+            container:temp$$el$$spi,
+            renderer:"svg",
+            loop:false,
+            autoplay:true,
+            path: "/static/sys-fail.json"
+        })
+        let temp$$el$$ms=document.createElement("message")
+        temp$$el$$ms.innerHTML=dihh
+        temp$$el$$spi.appendChild(temp$$el$$ms)
+        temp$$el$$not.appendChild(temp$$el$$spi)
+        document.body.appendChild(temp$$el$$not)
+        await sleep(3000)
+        temp$$el$$spi.style.transform='scale(0.8)'
+        temp$$el$$spi.style.opacity='0'
+        await sleep(310)
+        temp$$el$$not.remove()
+    }
     window.iOSprompt=async function(dihh){
         return new Promise((resolve)=>{
         let temp$$el$$not=document.createElement(`notify`)
@@ -127,6 +150,7 @@ window.addEventListener("DOMContentLoaded",function(){
         })
     })
     }
+    
     window.showKeyboard=function(){
       temp$$a$$dih=document.createElement('input')
       document.body.appendChild(temp$$a$$dih)
