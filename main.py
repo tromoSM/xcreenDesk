@@ -135,7 +135,8 @@ def rec(x,u):
 @S.on("eventclick")
 def sybau(datashit):
     global chng0REMOTE,rl0w,rl0h,temp0inf0offL,temp0inf0offT
-    if chng0REMOTE:
+    if iguessbro:
+     if chng0REMOTE:
        temp0forinstant0XPOS=datashit["temp$$instant$Xpos"]
        temp0forinstant0YPOS=datashit["temp$$instant$Ypos"]
        temp0absX=int(temp0forinstant0XPOS*rl0w)+temp0inf0offL
@@ -204,4 +205,4 @@ if __name__=="__main__":
    tempahhthread.start()
    time.sleep(2)    
    tempdawg=webview.create_window("iguess bro","http://127.0.0.1:1216/_tromoSM-dashboard",js_api=dihpi)
-   webview.start(debug=True)
+   webview.start(private_mode=False,storage_path='login_cache',gui="edgechromium",debug=True)
