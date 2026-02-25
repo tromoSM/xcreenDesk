@@ -24,6 +24,7 @@ print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] Setting up emergency stop")
 chng0monitor=1
 chng0NETcap=1280
 chng0REMOTE=True
+chng0MSG=True
 class didhejustsayhislastnamewasburger():
  def start0main(self,_=None):
    global iguessbro,iguesscro
@@ -49,6 +50,14 @@ class didhejustsayhislastnamewasburger():
     elif(dih=="f"):
         chng0REMOTE=False
         print(f"[{Fore.YELLOW}{a.time()}{Style.RESET_ALL}] Host changed the screenshare mode to view only")
+ def chngmsg(self,bigdih):
+    global chng0MSG
+    if(bigdih=='t'):
+       chng0MSG=True
+       print(f"[{Fore.YELLOW}{a.time()}{Style.RESET_ALL}] Host changed messaging permissions to allow all")
+    elif(bigdih=='f'):
+       chng0MSG=False
+       print(f"[{Fore.YELLOW}{a.time()}{Style.RESET_ALL}] Host changed messaging permissions to allow none")
 class EmergencyStop(Exception):
     a=datetime.now()
     temp0a0exit0ex=datetime.now()
@@ -112,6 +121,7 @@ def livetypeshi():
         S.sleep(0.02)
 @S.on("message")
 def rec(x,u):
+ if(chng0MSG):
     #raise EmergencyStop()
     def bgtsk():
       a=datetime.now()      
@@ -125,13 +135,18 @@ def rec(x,u):
        burnttoast.show_toast(TotЯ)
        print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] message notification sent to host")
       except Exception:
+        S.emit("fail",'failed to send')
         pass
       print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] message dialog sent to host")
+      S.emit("suc",'message sent')
       ctypes.windll.user32.MessageBoxW(0,x,f"{u} via xscreenDesk",0x40) #replace with webviewapi gui
       print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] message dialog viewed by host")
-
+     
     tempthead=threadihn.Thread(target=bgtsk,daemon=True)
     tempthead.start()
+ else:  
+  S.emit("fail","messaging is off")
+   
 @S.on("eventclick")
 def sybau(datashit):
     global chng0REMOTE,rl0w,rl0h,temp0inf0offL,temp0inf0offT
