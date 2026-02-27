@@ -1,6 +1,21 @@
 # © 2026-tromoSM. All rights reserved.
 # tromoSM/xcreenDesk
 # MADE FOR GUI MODE GET THE CLI VERSION AT CLI/
+# main.py
+#v1 GUI
+
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+
+#    http://www.apache.org/licenses/LICENSE-2.0
+
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 from datetime import datetime
 a=datetime.now()
 from colorama import Fore,Style
@@ -25,6 +40,15 @@ chng0monitor=1
 chng0NETcap=1280
 chng0REMOTE=True
 chng0MSG=True
+chng0bannedARR=[]
+
+ctypes.windll.user32.SetProcessDPIAware()
+logging0level0info=True
+app=Flask(__name__)
+S=SocketIO(app,cors_allowed_origins='*',async_mode="threading")
+a=datetime.now()
+print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] Turning on server")
+
 class didhejustsayhislastnamewasburger():
  def start0main(self,_=None):
    global iguessbro,iguesscro
@@ -58,6 +82,14 @@ class didhejustsayhislastnamewasburger():
     elif(bigdih=='f'):
        chng0MSG=False
        print(f"[{Fore.YELLOW}{a.time()}{Style.RESET_ALL}] Host changed messaging permissions to allow none")
+ def BAN(self,datashi):
+    if(datashi[0]=='b'):
+     S.emit("autoban",datashi[1])
+     chng0bannedARR.append(datashi[1])
+    elif(datashi[0]=='u'):
+     chng0bannedARR.remove(datashi[1])
+     S.emit('unban',datashi[1])
+     S.emit("refr",datashi[1])
 class EmergencyStop(Exception):
     a=datetime.now()
     temp0a0exit0ex=datetime.now()
@@ -69,18 +101,13 @@ class EmergencyStop(Exception):
        sys.exit(self)
     "Stopped due to EmergencyStop."
     pass
-ctypes.windll.user32.SetProcessDPIAware()
-logging0level0info=True
-app=Flask(__name__)
-S=SocketIO(app,cors_allowed_origins='*',async_mode="threading")
-a=datetime.now()
-print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] Turning on server")
 rl0h=0
 rl0w=0
 ou0w=0
 ou0h=0
 temp0inf0offT=0
 temp0inf0offL=0
+
 S.emit("monitors",pymonctl.getMonitorsCount())
 print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] Loading preferences")
 a=datetime.now()
@@ -189,6 +216,10 @@ def eatdih(u):
        "userdih":u[0],
        "mobiledih":u[1]
     })
+    if u[0] in chng0bannedARR:
+      print(f"[{Fore.MAGENTA}{a.time()}{Style.RESET_ALL}] {u[0]} tried to join while being banned.")
+      S.emit("autoban",u[0])
+
     print(f"[{Fore.LIGHTBLUE_EX}{a.time()}{Style.RESET_ALL}] {u[0]} joined.")
     S.emit("viewerahh",[len(main0users00),allusrahh,u[1]])
 @S.on("disconnect")
@@ -210,6 +241,7 @@ def sybau():
 @app.route('/')
 def dih():
    return render_template('index.html')
+ 
 
 if __name__=="__main__":
    dihpi=didhejustsayhislastnamewasburger()
