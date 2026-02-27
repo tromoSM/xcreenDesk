@@ -30,7 +30,13 @@ limitations under the License.
     --bg-dih: 360deg;
   }
 }
-
+[i='a']{
+  text-decoration: solid 1px transparent;
+  cursor: pointer;
+}
+[i='a']:hover{
+  text-decoration: solid underline 1px black;
+}
 mainindicate {
     width: fit-content;
     display: flex;
@@ -95,8 +101,14 @@ cardih h3{
   box-shadow: inset -5px -5px 8px #d6d6d6,inset 5px 5px 5px #ababab;
   transform: scale(0.94);
 }
+[getip] {
+    position: absolute;
+    bottom: 0;
+    padding: 0px 17px;
+}
 [unor]{
   padding: 3px 9px;
+  cursor: pointer;
   border: none;
   font-size: 16px;
   transition: 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
