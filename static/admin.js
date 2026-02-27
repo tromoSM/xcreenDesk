@@ -16,10 +16,15 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-window.addEventListener("DOMContentLoaded",function(){
+const username='Host'
+window.addEventListener("DOMContentLoaded",async function(){
     loader("please wait",'s')
      window.addEventListener('pywebviewready',async function(){
      loader("sybau",'idk cro')
+     await window.pywebview.api.refresh()  
+    })
+    document.querySelector(`[auto-ad="RefRE"]`).addEventListener('click',async function(){
+     await window.pywebview.api.refresh()  
     })
     const sdih=io()
     let all$$banned$$=[]
@@ -93,7 +98,7 @@ window.addEventListener("DOMContentLoaded",function(){
      let temp$$tran$clos=document.createElement("transparentcloser")  
      let temp$$cardfi=document.createElement("cardih")
      let temp$$doc$titl=document.createElement("h3")
-     temp$$doc$titl.innerHTML='Viewers'
+     temp$$doc$titl.innerHTML=`Viewers (${stored$ahh.length})` 
      temp$$cardfi.appendChild(temp$$doc$titl)
      stored$ahh.forEach(yo=>{
       let temp$$eac$op=document.createElement("writ")
@@ -129,6 +134,7 @@ window.addEventListener("DOMContentLoaded",function(){
      await window.pywebview.api.chngmsg('f')
     })
     let constin=''
+      document.querySelector('[inban="appear"]').setAttribute("placeholder",'Enter an username to ban')
     function refreshpla(){
       constin=document.querySelector('[inban="appear"]').value
       if(all$$banned$$.includes(constin)){
@@ -149,10 +155,12 @@ window.addEventListener("DOMContentLoaded",function(){
       if(all$$banned$$.includes(constin)){
         await window.pywebview.api.BAN(['u',constin])
         all$$banned$$=all$$banned$$.filter(dihdih=>dihdih!==constin)
+        await success(`user unbanned.`)
       }
       else{
         await window.pywebview.api.BAN(['b',constin])
         all$$banned$$.push(constin)
+        await success(`user is banned.`)
       }
       refreshpla()
     })
@@ -161,4 +169,12 @@ window.addEventListener("DOMContentLoaded",function(){
         document.querySelector('[unor="ban"]').click()
       }
     })
+  sdih.on("getip",function(iguessbro){
+    document.querySelector("[getip]").innerHTML=`Go to <span i='a'>http://${iguessbro}:1216</span> to see screenshare on any device that's connected to the same wifi`
+    document.querySelector(`[i='a']`).addEventListener("click",async function(){
+     loader("opening",'s')
+      await window.pywebview.api.openwebdih()
+     loader("syabu",'dih')
+    })
+  })
 })
