@@ -2,7 +2,7 @@
 # tromoSM/xcreenDesk
 # MADE FOR GUI MODE GET THE CLI VERSION AT CLI/
 # main.py
-#v1 GUI
+# v1 GUI
 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@ from colorama import Fore,Style
 print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] Please wait...")
 import cv2 as cdih
 from flask import Flask,render_template,request,abort
-from flask_socketio import SocketIO
+from flask_socketio import SocketIO,emit
 import mss
 import numpy as dihpy
 import base64
@@ -32,6 +32,58 @@ import sys
 import pyautogui
 import webview
 import pymonctl
+import os
+import shutil
+import platform
+import socket
+import webbrowser
+
+ip="FAILED TO GET IP ADDRESS. run the command 'ipconfig' and find the wlan(wireless network) ip address(v4)"
+def refreshA():
+ global ip
+ try:
+  if(platform.system()=='Windows'):
+   print(f"[{Fore.LIGHTMAGENTA_EX}{a.time()}{Style.RESET_ALL}] Finding ip address")
+   try:
+    sdih=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+    sdih.connect(('8.8.8.8',80))
+    ip=sdih.getsockname()[0]
+   except Exception as dih:
+      print(f"[{Fore.LIGHTMAGENTA_EX}{a.time()}{Style.RESET_ALL}] Failed to find ip address. {dih}") 
+      pass
+   print(f"[{Fore.LIGHTMAGENTA_EX}{a.time()}{Style.RESET_ALL}] ip address found.")
+ except PermissionError:
+  if(platform.system()=='Windows'):
+    ip="Permission error. reopen as admin to continue"
+    print(f"[{Fore.LIGHTMAGENTA_EX}{a.time()}{Style.RESET_ALL}] Failed to find ip address.")
+
+APPDATAAHH=os.getenv("APPDATA")
+APPROOT=os.path.join(APPDATAAHH,"xscreenDesk")
+os.makedirs(APPROOT,exist_ok=True)
+def exe():
+   if getattr(sys,'frozen',False):
+      return sys._MEIPASS
+   return os.path.dirname(os.path.abspath(__file__))
+a=datetime.now()
+print(f"[{Fore.CYAN}{a.time()}{Style.RESET_ALL}] First time running will take a few more seconds than usual.")
+
+temp0dih0server=exe()
+def packurbagsahh(dih,seconddih):
+ os.makedirs(seconddih,exist_ok=True)
+ for dihh in os.listdir(dih):
+    sdih=os.path.join(dih,dihh)
+    ddih=os.path.join(seconddih,dihh)
+    if not os.path.exists(ddih):
+       if os.path.isdir(sdih):
+          shutil.copytree(sdih,ddih)
+       else:
+          shutil.copy2(sdih,ddih)
+
+packurbagsahh(os.path.join(temp0dih0server,"static"),
+              os.path.join(APPROOT,"static"))
+packurbagsahh(os.path.join(temp0dih0server,"templates"),
+              os.path.join(APPROOT,"templates"))
+
 iguessbro=False
 iguesscro=None
 print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] Setting up emergency stop")
@@ -90,6 +142,11 @@ class didhejustsayhislastnamewasburger():
      chng0bannedARR.remove(datashi[1])
      S.emit('unban',datashi[1])
      S.emit("refr",datashi[1])
+ def refresh(self,_=None):
+    refreshA()
+    S.emit("getip",ip)
+ def openwebdih(self,_=None):
+    webbrowser.open_new_tab(f"http://{ip}:1216")
 class EmergencyStop(Exception):
     a=datetime.now()
     temp0a0exit0ex=datetime.now()
@@ -241,7 +298,6 @@ def sybau():
 @app.route('/')
 def dih():
    return render_template('index.html')
- 
 
 if __name__=="__main__":
    dihpi=didhejustsayhislastnamewasburger()
@@ -251,5 +307,5 @@ if __name__=="__main__":
    tempahhthread=threadihn.Thread(target=tempahhtypeshitdawg,daemon=True)
    tempahhthread.start()
    time.sleep(2)    
-   tempdawg=webview.create_window("iguess bro","http://127.0.0.1:1216/_tromoSM-dashboard",js_api=dihpi)
-   webview.start(private_mode=False,storage_path='login_cache',gui="edgechromium",debug=True)
+   tempdawg=webview.create_window("iguess bro","http://127.0.0.1:1216/_tromoSM-dashboard",js_api=dihpi,min_size=(769,502),background_color="#f7f7f7",resizable=True,draggable=False)
+   webview.start(private_mode=False,debug=False)
