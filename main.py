@@ -15,10 +15,24 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+XCR_VER=1.0
+XCR_RELEASE='2026/03'
+XCR_INTERFACE='GUI'
 
 from datetime import datetime
 a=datetime.now()
 from colorama import Fore,Style
+print(f"""
+██╗  ██╗ ██████╗██████╗ ███████╗███████╗███╗   ██╗    ██████╗ ███████╗███████╗██╗  ██╗
+╚██╗██╔╝██╔════╝██╔══██╗██╔════╝██╔════╝████╗  ██║    ██╔══██╗██╔════╝██╔════╝██║ ██╔╝
+ ╚███╔╝ ██║     ██████╔╝█████╗  █████╗  ██╔██╗ ██║    ██║  ██║█████╗  ███████╗█████╔╝ 
+ ██╔██╗ ██║     ██╔══██╗██╔══╝  ██╔══╝  ██║╚██╗██║    ██║  ██║██╔══╝  ╚════██║██╔═██╗ 
+██╔╝ ██╗╚██████╗██║  ██║███████╗███████╗██║ ╚████║    ██████╔╝███████╗███████║██║  ██╗
+╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═══╝    ╚═════╝ ╚══════╝╚══════╝╚═╝  ╚═╝
+                                                                     {XCR_VER} [{XCR_RELEASE}] {XCR_INTERFACE}                          
+      """)
+print(f"[{Fore.LIGHTMAGENTA_EX}{a.time()}{Style.RESET_ALL}] (c) 2026 tromoSM. All rights reserved.")
+print(f"[{Fore.LIGHTMAGENTA_EX}{a.time()}{Style.RESET_ALL}] tromoSM/xcreenDesk.\n")
 print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] Please wait...")
 import cv2 as cdih
 from flask import Flask,render_template,request,abort
@@ -58,7 +72,7 @@ def refreshA():
     print(f"[{Fore.LIGHTMAGENTA_EX}{a.time()}{Style.RESET_ALL}] Failed to find ip address.")
 
 APPDATAAHH=os.getenv("APPDATA")
-APPROOT=os.path.join(APPDATAAHH,"xscreenDesk")
+APPROOT=os.path.join(APPDATAAHH,"xcreenDesk")
 os.makedirs(APPROOT,exist_ok=True)
 def exe():
    if getattr(sys,'frozen',False):
@@ -212,7 +226,7 @@ def rec(x,u):
       print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] {u} sent the message '{x}' to host.")
       try:
        from windows_toasts import AudioSource, Toast, ToastAudio,WindowsToaster
-       burnttoast = WindowsToaster('xscreenDesk')
+       burnttoast = WindowsToaster('xcreenDesk')
        TotЯ = Toast()
        TotЯ.text_fields = [f"{u} sent you a message",x]
        TotЯ.audio=ToastAudio(AudioSource.Default, looping=False)
@@ -223,7 +237,7 @@ def rec(x,u):
         pass
       print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] message dialog sent to host")
       S.emit("suc",'message sent')
-      ctypes.windll.user32.MessageBoxW(0,x,f"{u} via xscreenDesk",0x40) #replace with webviewapi gui
+      ctypes.windll.user32.MessageBoxW(0,x,f"{u} via xcreenDesk",0x40) #replace with webviewapi gui
       print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] message dialog viewed by host")
      
     tempthead=threadihn.Thread(target=bgtsk,daemon=True)
@@ -308,4 +322,4 @@ if __name__=="__main__":
    tempahhthread.start()
    time.sleep(2)    
    tempdawg=webview.create_window("iguess bro","http://127.0.0.1:1216/_tromoSM-dashboard",js_api=dihpi,min_size=(769,502),background_color="#f7f7f7",resizable=True,draggable=False)
-   webview.start(private_mode=False,debug=False)
+   webview.start(private_mode=False,debug=True)
