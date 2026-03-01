@@ -37,6 +37,12 @@ limitations under the License.
 [i='a']:hover{
   text-decoration: solid underline 1px black;
 }
+[tromoSM="adm-h-logo"]{
+      width: 32px;
+    height: 32px;
+    margin-right: 4px;
+}
+
 mainindicate {
     width: fit-content;
     display: flex;
