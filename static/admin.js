@@ -20,8 +20,16 @@ const username='Host'
 window.addEventListener("DOMContentLoaded",async function(){
     loader("please wait",'s')
      window.addEventListener('pywebviewready',async function(){
+     
      loader("sybau",'idk cro')
      await window.pywebview.api.refresh()  
+            lottie.loadAnimation({
+            container:document.querySelector(`[tromoSM="adm-h-logo"]`),
+            renderer:"svg",
+            loop:false,
+            autoplay:true,
+            path: `/static/logo.json/`
+        })
     })
     document.querySelector(`[auto-ad="RefRE"]`).addEventListener('click',async function(){
      await window.pywebview.api.refresh()  
