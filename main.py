@@ -31,7 +31,7 @@ print(f"""
 ╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═══╝    ╚═════╝ ╚══════╝╚══════╝╚═╝  ╚═╝
                                                                      {XCR_VER} [{XCR_RELEASE}] {XCR_INTERFACE}                          
       """)
-print(f"[{Fore.LIGHTMAGENTA_EX}{a.time()}{Style.RESET_ALL}] (c) 2026 tromoSM. All rights reserved.")
+print(f"[{Fore.LIGHTMAGENTA_EX}{a.time()}{Style.RESET_ALL}] © 2026 tromoSM. All rights reserved.")
 print(f"[{Fore.LIGHTMAGENTA_EX}{a.time()}{Style.RESET_ALL}] tromoSM/xcreenDesk.\n")
 print(f"[{Fore.GREEN}{a.time()}{Style.RESET_ALL}] Please wait...")
 import cv2 as cdih
@@ -63,13 +63,13 @@ def refreshA():
     sdih.connect(('8.8.8.8',80))
     ip=sdih.getsockname()[0]
    except Exception as dih:
-      print(f"[{Fore.LIGHTMAGENTA_EX}{a.time()}{Style.RESET_ALL}] Failed to find ip address. {dih}") 
+      print(f"[{Fore.LIGHTRED_EX}{a.time()}{Style.RESET_ALL}] Failed to find ip address. {dih}") 
       pass
    print(f"[{Fore.LIGHTMAGENTA_EX}{a.time()}{Style.RESET_ALL}] ip address found.")
  except PermissionError:
   if(platform.system()=='Windows'):
     ip="Permission error. reopen as admin to continue"
-    print(f"[{Fore.LIGHTMAGENTA_EX}{a.time()}{Style.RESET_ALL}] Failed to find ip address.")
+    print(f"[{Fore.RED}{a.time()}{Style.RESET_ALL}] Failed to find ip address.")
 
 APPDATAAHH=os.getenv("APPDATA")
 APPROOT=os.path.join(APPDATAAHH,"xcreenDesk")
@@ -321,5 +321,12 @@ if __name__=="__main__":
    tempahhthread=threadihn.Thread(target=tempahhtypeshitdawg,daemon=True)
    tempahhthread.start()
    time.sleep(2)    
-   tempdawg=webview.create_window("iguess bro","http://127.0.0.1:1216/_tromoSM-dashboard",js_api=dihpi,min_size=(769,502),background_color="#f7f7f7",resizable=True,draggable=False)
-   webview.start(private_mode=False,debug=True)
+   tempdawg=webview.create_window("XcreenDesk","http://127.0.0.1:1216/_tromoSM-dashboard",js_api=dihpi,min_size=(769,502),background_color="#f7f7f7",resizable=True,draggable=False)
+   try:
+      import pyi_splash
+      pyi_splash.close()
+   except:
+      a=datetime.now()
+      print(f"[{Fore.RED}{a.time()}{Style.RESET_ALL}] PYINSTALLER SPLASH NOT FOUND")
+      pass
+   webview.start(private_mode=False,debug=False)
