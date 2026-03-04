@@ -18,5 +18,12 @@
 - Screencapture save for viewer
 ## Debugging
 - Download the [latest windows installer with console](https://github.com/tromoSM/xcreenDesk/releases/download/v1.0/XcreenDesk-windows-installer-with-console.exe) and install
-
+# Upcoming features
+----
+| feature | production rate | 
+|-|-|
+| Messaging in between users | 6 |
+| Change screenshare quality | 9 |
+| Change screenshare delay | 9 |
+| Change screenshare monitor | 8 |
 ##### © 2026 tromoSM. All rights reserved. (apache 2.0)
