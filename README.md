@@ -33,4 +33,7 @@
 | Change screenshare quality | 9 |
 | Change screenshare delay | 9 |
 | Change screenshare monitor | 8 |
+| Remote scrolling | 6 |
+| Remote drag | 5 |
+| Remote keyboard | 10 |
 ##### © 2026 tromoSM. All rights reserved. (apache 2.0)
