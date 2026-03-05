@@ -18,7 +18,14 @@
 - Screencapture save for viewer
 ## Debugging
 - Download the [latest windows installer with console](https://github.com/tromoSM/xcreenDesk/releases/download/v1.0/XcreenDesk-windows-installer-with-console.exe) and install
-# Upcoming features
+## Preview
+<p align="center">
+  <img  height="150"  alt="gitpreview" src="https://github.com/user-attachments/assets/b849e806-ce69-4085-b554-aae8d7bb2859" />
+  <img height="150"  alt="gitpreview-viewer-cl" src="https://github.com/user-attachments/assets/156ec5ed-5c9b-4c79-a2a7-6ceb57237ede" />
+  <img height="150" alt="gitpreview-viewers" src="https://github.com/user-attachments/assets/c29dea3a-e710-4f4b-98d5-eb289ec382bc" />
+</p>
+
+## Upcoming features
 ----
 | feature | production rate | 
 |-|-|
