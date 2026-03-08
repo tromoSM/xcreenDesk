@@ -7,6 +7,10 @@
 - share realtime screen and remote desktop for all users on your local network with no data fees.
 ## Installation 
 - download the [latest windows installer](https://github.com/tromoSM/xcreenDesk/releases/download/v1.0/XcreenDesk-windows-installer.exe) from the [release page](https://github.com/tromoSM/xcreenDesk/releases/latest/)
+- or run this command on your cmd
+```bash
+winget install xcreenDesk
+```
 - install
 ## Features
 - No data fees
