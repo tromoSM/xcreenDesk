@@ -40,4 +40,6 @@ winget install xcreenDesk
 | Remote scrolling | 6 |
 | Remote drag | 5 |
 | Remote keyboard | 10 |
+
+##### [send feedback or request features](https://tromosm.ct.ws/?feedback=true)
 ##### © 2026 tromoSM. All rights reserved. (apache 2.0)
