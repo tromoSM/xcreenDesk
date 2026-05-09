@@ -42,4 +42,4 @@ winget install xcreenDesk
 | Remote keyboard | 10 |
 
 ##### [send feedback or request features](https://tromosm.ct.ws/?feedback=true)
-##### © 2026 tromoSM. All rights reserved. (apache 2.0)
+##### © 2026 tromoSM. (apache 2.0)
